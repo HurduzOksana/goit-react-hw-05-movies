@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'api/api';
 import styles from './Cast.module.css';
@@ -8,13 +7,6 @@ export const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
 
-  //   useEffect(() => {
-  //     getMovieCast(movieId)
-  //       .then(setCast)
-  //       .catch(() => {
-  //         toast.error('Something went wrong!');
-  //       });
-  //   }, [movieId]);
   useEffect(() => {
     fetchCast();
     async function fetchCast() {
@@ -25,7 +17,6 @@ export const Cast = () => {
         console.log(error);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
   return (

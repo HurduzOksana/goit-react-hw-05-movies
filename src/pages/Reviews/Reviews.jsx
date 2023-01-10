@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReview } from 'api/api';
-import { toast } from 'react-toastify';
-// import styles from './Cast.module.css';
 
 export const Reviews = () => {
   const { movieId } = useParams();

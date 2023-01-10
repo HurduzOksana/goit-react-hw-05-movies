@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Outlet } from 'react-router-dom';
 import styles from './MoviesDetails.module.css';
 import { getSingleMovieService } from 'api/api';
 
@@ -36,12 +36,12 @@ export const MoviesDetails = () => {
               <li key={id}>{name}</li>
             ))}
           </ul>
-          <Link className={styles.Button} to={`cast`}>
+          <NavLink className={styles.Button} to={`cast`}>
             Cast
-          </Link>
-          <Link className={styles.Button} to={`reviews`}>
+          </NavLink>
+          <NavLink className={styles.Button} to={`reviews`}>
             Reviews
-          </Link>
+          </NavLink>
           <Outlet />
         </div>
       </div>
