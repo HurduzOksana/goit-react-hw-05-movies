@@ -1,0 +1,14 @@
+.Wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.Details {
+  width: 500px;
+  margin-left: 15px;
+}
+
+.Button {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,38 +1,55 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, useLocation, Outlet } from 'react-router-dom';
-import { getFullInfo } from 'api/api';
-import MovieDetailsComponent from 'components/MovieDetailsComponent/MovieDetailsComponent';
+import { toast } from 'react-toastify';
+import { useParams, Link, Outlet } from 'react-router-dom';
+import styles from './MoviesDetails.module.css';
+import { getSingleMovieService } from 'api/api';
 
-const MoviesDetails = () => {
-  const [movie, setMovie] = useState(null);
+export const MoviesDetails = () => {
   const { movieId } = useParams();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const prevPage = location.state?.from ?? '/';
+  console.log(movieId);
+
+  const [movie, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getFullInfo(movieId)
-      .then(({ data }) => setMovie(data.data))
-      .catch(console.log('error'));
+    setIsLoading(true);
+
+    getSingleMovieService(movieId)
+      .then(setPost)
+      .catch(() => {
+        toast.error('Something went wrong!');
+      })
+      .finally(() => setIsLoading(false));
   }, [movieId]);
 
-  const goBack = () => navigate(prevPage);
-
   return (
-    <>
-      {movie && (
-        <MovieDetailsComponent
-          img={movie.poster_path}
-          title={movie.original_title}
-          rating={movie.vote_average}
-          overview={movie.overview}
-          genres={movie.genres}
-          goBack={goBack}
+    movie && (
+      <div className={styles.Wrapper}>
+        <img
+          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+          alt={movie.title}
+          style={{ width: '300px' }}
         />
-      )}
-      <Outlet />
-    </>
+        <div className={styles.Details}>
+          <h1>{movie.title}</h1>
+          <p>User score: {movie.vote_average}</p>
+          <h2>Overview</h2>
+          <p>{movie.overview}</p>
+          <h2>Genres</h2>
+          <ul>
+            {movie.genres.map(({ name }, id) => (
+              <li key={id}>{name}</li>
+            ))}
+          </ul>
+          <Link className={styles.Button} to={`/posts/${movieId}/cast`}>
+            Cast
+          </Link>
+          <Link className={styles.Button} to={`/posts/${movieId}/reviews`}>
+            Reviews
+          </Link>
+          <Outlet />
+        </div>
+      </div>
+    )
   );
 };
-
-export { MoviesDetails };

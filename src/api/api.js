@@ -27,10 +27,10 @@ export const getMovie = async query => {
 
 // Запит повної інформації про фільм для сторінки кінофільму.
 
-export const getFullInfo = async movieId => {
-  const { data } = await instance.get(`/movie/${movieId}`);
+export const getSingleMovieService = async (id, params) => {
+  const { data } = await instance.get(`/movie/${id}`, { params });
 
-  return { data };
+  return data;
 };
 
 // Запит інформації про акторський склад для сторінки кінофільму.
