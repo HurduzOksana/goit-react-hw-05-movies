@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-// const BASE_URL = 'https://api.themoviedb.org/3/movie/550';
-// const API_KEY = 'b6da31fc92a69bac7a66403e27502d5d';
-
 const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
   params: {
@@ -20,14 +17,34 @@ export const getTrending = async () => {
 
 // Пошук фільму за ключовим словом на сторінці фільмів.
 
-export const getMovie = async () => {
-  const { data } = await instance.get(`/trending/get-trending`);
+export const getMovie = async query => {
+  const { data } = await instance.get('/search/movie', {
+    params: { query },
+  });
 
   return data;
 };
 
 // Запит повної інформації про фільм для сторінки кінофільму.
 
+export const getFullInfo = async movieId => {
+  const { data } = await instance.get(`/movie/${movieId}`);
+
+  return { data };
+};
+
 // Запит інформації про акторський склад для сторінки кінофільму.
 
+export const getMovieCast = async movieId => {
+  const { data } = await instance.get(`/movie/${movieId}/credits`);
+
+  return data;
+};
+
 // Запит оглядів для сторінки кінофільму.
+
+export const getReview = async movieId => {
+  const { data } = await instance.get(`/movie/${movieId}/reviews`);
+
+  return data;
+};

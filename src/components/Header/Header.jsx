@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import styles from './Layout.module.css';
+import styles from './Header.module.css';
 
 // const navItems = [
 //   { href: '/', text: 'Home' },
@@ -22,7 +22,7 @@ import styles from './Layout.module.css';
 //   );
 // };
 
-const Layout = () => {
+const Header = () => {
   return (
     <>
       <header className={styles.Header}>
@@ -40,4 +40,4 @@ const Layout = () => {
   );
 };
 
-export { Layout };
+export { Header };

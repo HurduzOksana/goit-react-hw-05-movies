@@ -1,12 +1,10 @@
-import styles from './Movies.module.css';
+import styles from './SearchBox.module.css';
 
-const Movies = () => {
-
-  
+export const SearchBox = ({ handleSubmit }) => {
   return (
     <div className={styles.Searchbar}>
       <h1>Movies</h1>
-      <form className={styles.SearchForm}>
+      <form className={styles.SearchForm} onSubmit={handleSubmit}>
         <button type="submit" className={styles['SearchForm-button']}>
           <span className={styles['SearchForm-button-label']}>Search</span>
         </button>
@@ -16,10 +14,9 @@ const Movies = () => {
           autoComplete="off"
           autoFocus
           placeholder="Search movies..."
+          name="search"
         />
       </form>
     </div>
   );
 };
-
-export { Movies };
