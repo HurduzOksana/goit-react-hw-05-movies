@@ -1,0 +1,13 @@
+.Poster {
+  max-height: 200px;
+}
+
+.Section {
+  display: flex;
+}
+
+.CastList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -4,9 +4,8 @@ import { Header } from './components/Header/Header';
 import { Home } from './pages/Home/Home';
 import { Movies } from './pages/Movies/Movies';
 import { MoviesDetails } from './pages/MovieDetails/MovieDetails';
-// import { Cast } from './pages/Cast/Cast';
-// import { Reviews } from './pages/Reviews/Reviews';
-// import SingleMoviePage from 'pages/SingleMoviePage/SingleMoviePage';
+import { Cast } from './pages/Cast/Cast';
+import { Reviews } from './pages/Reviews/Reviews';
 
 export const UserRoutes = () => {
   return (
@@ -16,8 +15,8 @@ export const UserRoutes = () => {
         <Route path="*" element={<Home />}></Route>
         <Route path="/movies" element={<Movies />}></Route>
         <Route path="/movies/:movieId" element={<MoviesDetails />}>
-          {/* <Route path="cast" element={<Cast />}></Route>
-          <Route path="reviews" element={<Reviews />}></Route> */}
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />}></Route>
         </Route>
       </Routes>
       {/* <Routes>

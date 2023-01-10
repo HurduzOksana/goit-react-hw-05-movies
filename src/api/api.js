@@ -35,16 +35,16 @@ export const getSingleMovieService = async (id, params) => {
 
 // Запит інформації про акторський склад для сторінки кінофільму.
 
-export const getMovieCast = async movieId => {
-  const { data } = await instance.get(`/movie/${movieId}/credits`);
+export const getMovieCast = async (id, params) => {
+  const { data } = await instance.get(`/movie/${id}/credits`, { params });
 
   return data;
 };
 
 // Запит оглядів для сторінки кінофільму.
 
-export const getReview = async movieId => {
-  const { data } = await instance.get(`/movie/${movieId}/reviews`);
+export const getReview = async (id, params) => {
+  const { data } = await instance.get(`/movie/${id}/reviews`, { params });
 
   return data;
 };
