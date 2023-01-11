@@ -16,11 +16,19 @@ const Home = () => {
   return (
     <div className={styles.Container}>
       <h1>Trending today</h1>
-      <div>
+      <div className={styles.PosterGallery}>
         {movies.map(movie => (
           <Link key={movie.id} to={`/movies/${movie.id}`}>
-            <li key={movie.id} id={movie.id}>
+            {/* <li key={movie.id} id={movie.id}>
               {movie.title}
+            </li> */}
+            <li className={styles.ImageGalleryItem}>
+              <img
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt={movie.title}
+                style={{ width: '300px' }}
+                className={styles['ImageGalleryItem-image']}
+              />
             </li>
           </Link>
         ))}

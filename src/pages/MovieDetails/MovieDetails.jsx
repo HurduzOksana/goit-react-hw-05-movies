@@ -23,7 +23,9 @@ export const MoviesDetails = () => {
   return (
     movie && (
       <>
-        <button onClick={goBack}>Go back</button>
+        <button onClick={goBack} className={styles.GoBack}>
+          Go back
+        </button>
         <div className={styles.Wrapper}>
           <img
             src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}

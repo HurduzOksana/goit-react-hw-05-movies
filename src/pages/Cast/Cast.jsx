@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'api/api';
 import styles from './Cast.module.css';
+import icon from 'images/icon.jpg';
 
 export const Cast = () => {
   const { movieId } = useParams();
@@ -26,11 +27,15 @@ export const Cast = () => {
           {cast &&
             cast.map(({ id, name, character, profile_path }) => (
               <li key={id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
-                  alt={name}
-                  className={styles.Poster}
-                />
+                {profile_path !== null ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+                    alt={name}
+                    className={styles.Poster}
+                  />
+                ) : (
+                  <img src={icon} alt={name} className={styles.Poster} />
+                )}
                 <p>{name}</p>
                 <p>{character}</p>
               </li>
