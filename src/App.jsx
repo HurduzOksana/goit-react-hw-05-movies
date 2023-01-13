@@ -3,7 +3,7 @@ import UserRoutes from 'UserRoutes';
 
 export const App = () => {
   return (
-    <div className="App">
+    <div>
       <UserRoutes />
     </div>
   );

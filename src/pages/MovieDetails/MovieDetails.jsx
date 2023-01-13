@@ -5,7 +5,7 @@ import { useParams, NavLink, Outlet } from 'react-router-dom';
 import styles from './MoviesDetails.module.css';
 import { getSingleMovieService } from 'api/api';
 
-export const MoviesDetails = () => {
+const MoviesDetails = () => {
   const { movieId } = useParams();
   const [movie, setPost] = useState(null);
   const navigate = useNavigate(null);
@@ -57,3 +57,5 @@ export const MoviesDetails = () => {
     )
   );
 };
+
+export default MoviesDetails;

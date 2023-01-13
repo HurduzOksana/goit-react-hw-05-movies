@@ -5,6 +5,7 @@ import { getMovie } from 'api/api';
 import { SearchBox } from 'components/SearchBox/SearchBox';
 import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import styles from './Movies.module.css';
 
 const Movies = () => {
   const [movies, setMovies] = useState(null);
@@ -30,19 +31,31 @@ const Movies = () => {
   }, [search]);
 
   return (
-    <>
+    <div className={styles.Container}>
       <SearchBox handleSubmit={handleSubmit} />
       {movies && (
-        <ul>
-          {movies.map(movie => (
+        <ul className={styles.PosterGallery}>
+          {/* {movies.map(movie => (
             <li key={movie.id}>
               <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
             </li>
+          ))} */}
+          {movies.map(movie => (
+            <Link key={movie.id} to={`/movies/${movie.id}`}>
+              <li className={styles.ImageGalleryItem}>
+                <img
+                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  alt={movie.title}
+                  style={{ width: '300px' }}
+                  className={styles['ImageGalleryItem-image']}
+                />
+              </li>
+            </Link>
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 
-export { Movies };
+export default Movies;

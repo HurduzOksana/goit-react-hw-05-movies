@@ -19,9 +19,6 @@ const Home = () => {
       <div className={styles.PosterGallery}>
         {movies.map(movie => (
           <Link key={movie.id} to={`/movies/${movie.id}`}>
-            {/* <li key={movie.id} id={movie.id}>
-              {movie.title}
-            </li> */}
             <li className={styles.ImageGalleryItem}>
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -37,4 +34,4 @@ const Home = () => {
   );
 };
 
-export { Home };
+export default Home;

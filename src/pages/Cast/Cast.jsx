@@ -4,7 +4,7 @@ import { getMovieCast } from 'api/api';
 import styles from './Cast.module.css';
 import icon from 'images/icon.jpg';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
 
@@ -45,3 +45,5 @@ export const Cast = () => {
     </section>
   );
 };
+
+export default Cast;

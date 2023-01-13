@@ -7,6 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(248, 242, 237);
+  color: #475752;
 }
 
 code {
@@ -14,52 +16,36 @@ code {
     monospace;
 }
 
-.active {
-  color: green;
-  cursor: default;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(248, 242, 237);
-  color: #475752;
-}
-
-header {
+/* header {
   background-color: var(--color-bg);
   padding: 2rem 0;
   text-align: center;
-}
-header > a {
+} */
+/* header > a {
   color: white;
   text-decoration: none;
   padding: 0 1rem;
-}
-header > a:hover {
+} */
+/* header > a:hover {
   text-decoration: underline;
-}
-
+} */
+/* 
 h1 {
   text-align: center;
   margin-top: 0;
-}
+} */
 
-.container {
+/* .container {
   max-width: 900px;
   padding-left: 2rem;
   padding-right: 2rem;
   margin: 0 auto;
-}
+} */
 
-main {
+/* main {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
+} */
 
 main a {
   text-decoration: none;
@@ -67,4 +53,9 @@ main a {
 }
 main a:hover {
   text-decoration: none;
+}
+
+.active {
+  color: green;
+  cursor: default;
 }
